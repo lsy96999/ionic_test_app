@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'alert-badge',
     loadChildren: () => import('./page/alert-badge/alert-badge.module').then( m => m.AlertBadgePageModule)
   },
+  {
+    path: 'breadcrumbs',
+    loadChildren: () => import('./page/breadcrumbs/breadcrumbs.module').then( m => m.BreadcrumbsPageModule)
+  },
 ];
 
 @NgModule({

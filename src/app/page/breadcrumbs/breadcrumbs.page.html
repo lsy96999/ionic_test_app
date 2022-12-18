@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-button>
+    <ion-title>breadcrumbs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-breadcrumbs>
+    <ion-breadcrumb>Home</ion-breadcrumb>
+    <ion-breadcrumb>Electronics</ion-breadcrumb>
+    <ion-breadcrumb>Cameras</ion-breadcrumb>
+    <ion-breadcrumb>File</ion-breadcrumb>
+  </ion-breadcrumbs>
+  <br>
+  <ion-label>Icons at Start</ion-label>
+  <ion-breadcrumbs>
+    <ion-breadcrumb>
+      <ion-icon slot="start" name="home"></ion-icon>
+      Home
+    </ion-breadcrumb>
+    <ion-breadcrumb>
+      <ion-icon slot="start" name="flash"></ion-icon>
+      Electronics
+    </ion-breadcrumb>
+    <ion-breadcrumb>
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Cameras
+    </ion-breadcrumb>
+    <ion-breadcrumb>
+      <ion-icon slot="start" name="film"></ion-icon>
+      Film
+    </ion-breadcrumb>
+  </ion-breadcrumbs>
+  <br>
+  <ion-breadcrumbs>
+    <ion-breadcrumb>
+      Home
+      <ion-icon slot="separator" name="arrow-forward-circle"></ion-icon>
+    </ion-breadcrumb>
+    <ion-breadcrumb>
+      Electronics
+      <ion-icon slot="separator" name="arrow-forward-circle"></ion-icon>
+    </ion-breadcrumb>
+  </ion-breadcrumbs>
+  <br>
+  <ion-breadcrumbs [maxItems]="4">
+    <ion-breadcrumb>Home</ion-breadcrumb>
+    <ion-breadcrumb>Electronics</ion-breadcrumb>
+    <ion-breadcrumb>Photography</ion-breadcrumb>
+    <ion-breadcrumb>Cameras</ion-breadcrumb>
+    <ion-breadcrumb>File</ion-breadcrumb>
+    <ion-breadcrumb>35mm</ion-breadcrumb>
+  </ion-breadcrumbs>
+
+  <ion-breadcrumbs [maxItems]="maxBreadcrumbs" (ionCollapsedClick)="expandBreadcrumbs()">
+    <ion-breadcrumb href="#home">Home</ion-breadcrumb>
+    <ion-breadcrumb href="#electronics">Electronics</ion-breadcrumb>
+    <ion-breadcrumb href="#photography">Photography</ion-breadcrumb>
+    <ion-breadcrumb href="#cameras">Cameras</ion-breadcrumb>
+    <ion-breadcrumb href="#film">Film</ion-breadcrumb>
+    <ion-breadcrumb href="#35mm">35 mm</ion-breadcrumb>
+  </ion-breadcrumbs>
+
+  <br>
+  <ion-breadcrumbs [maxItems]="4" (ionCollapsedClick)="presentPopover($event)">
+    <ion-breadcrumb href="#home">Home</ion-breadcrumb>
+    <ion-breadcrumb href="#electronics">Electronics</ion-breadcrumb>
+    <ion-breadcrumb href="#photography">Photography</ion-breadcrumb>
+    <ion-breadcrumb href="#cameras">Cameras</ion-breadcrumb>
+    <ion-breadcrumb href="#film">Film</ion-breadcrumb>
+    <ion-breadcrumb href="#35mm">35 mm</ion-breadcrumb>
+  </ion-breadcrumbs>
+  <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
+    <ng-template>
+      <ion-content>
+        <ion-list>
+          <ion-item
+            *ngFor="let breadcrumb of collapsedBreadcrumbs; last as isLast"
+            [href]="breadcrumb.href"
+            [lines]="isLast ? 'none' : null"
+          >
+            <ion-label>{{ breadcrumb.textContent }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-popover>
+</ion-content>
