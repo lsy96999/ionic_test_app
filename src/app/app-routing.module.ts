@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'accordian',
     loadChildren: () => import('./page/accordian/accordian.module').then( m => m.AccordianPageModule)
   },
+  {
+    path: 'alert-badge',
+    loadChildren: () => import('./page/alert-badge/alert-badge.module').then( m => m.AlertBadgePageModule)
+  },
 ];
 
 @NgModule({
