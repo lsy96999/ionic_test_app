@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'action-sheet',
     loadChildren: () => import('./page/action-sheet/action-sheet.module').then( m => m.ActionSheetPageModule)
   },
+  {
+    path: 'accordian',
+    loadChildren: () => import('./page/accordian/accordian.module').then( m => m.AccordianPageModule)
+  },
 ];
 
 @NgModule({
