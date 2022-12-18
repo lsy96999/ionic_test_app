@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-button>
+    <ion-title>action_sheet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-button (click)="presentActionSheet()">Open</ion-button>
+    <code>{{result}}</code> 
+    <hr/>
+    <ion-button (click)="presentActionSheet2()">Open</ion-button>
+    <code>{{result2}}</code> 
+  </div>
+
+</ion-content>
